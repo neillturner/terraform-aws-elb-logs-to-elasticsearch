@@ -3,7 +3,7 @@ resource "aws_s3_bucket_notification" "elb_logs_to_elasticsearch_vpc" {
   bucket = "${var.s3_bucket_id}"
 
   lambda_function {
-    lambda_function_arn = "${aws_lambda_function.elb_logs_to_elasticsearch_vpc.arn}"
+    lambda_function_arn = "${aws_lambda_function.elb_logs_to_elasticsearch_vpc[0].arn}"
     events              = ["s3:ObjectCreated:*"]
   }
 }
@@ -13,7 +13,7 @@ resource "aws_s3_bucket_notification" "elb_logs_to_elasticsearch" {
   bucket = "${var.s3_bucket_id}"
 
   lambda_function {
-    lambda_function_arn = "${aws_lambda_function.elb_logs_to_elasticsearch.arn}"
+    lambda_function_arn = "${aws_lambda_function.elb_logs_to_elasticsearch[0].arn}"
     events              = ["s3:ObjectCreated:*"]
   }
 }
