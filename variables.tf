@@ -37,7 +37,7 @@ variable "s3_bucket_id" {
 
 variable "subnet_ids" {
   description = "Subnet IDs you want to deploy the lambda in. Only fill this in if you want to deploy your Lambda function inside a VPC."
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
